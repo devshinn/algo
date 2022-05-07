@@ -52,11 +52,17 @@ function dirCheck(i, j, num) {
   var value = false
   for (dir of direction) {
     var x = dir[0] + i; var y = dir[1] + j
-    console.log(i, j, x, y)
-    if (x >= 0 && y >= 0 && x < 3 && y < 4 && key[y][x] === num) return true
-
+    if (x >= 0 && y >= 0 && x < 3 && y < 4 && key[y][x] === num) {
+      return [x, y]
+    }
   }
   return value
+}
+
+function pointLength(a,b){
+  return Math.sqrt(
+    Math.pow(Math.abs(a[0]) - Math.abs(b[0]),2) + Math.pow(Math.abs(a[1]) - Math.abs(b[1]),2)
+  )
 }
 
 const numbers = [7, 0, 8, 2, 8, 3, 1, 5, 7, 6, 2]
